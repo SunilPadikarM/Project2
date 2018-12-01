@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace HotelReservation.Models
 {
 
@@ -52,6 +51,7 @@ namespace HotelReservation.Models
         [DataType(DataType.Password)]
         public String Password { get; set; }
 
+        
         [Display(Name = "Confirm Password")]
         [Compare("Password", ErrorMessage = "Confirm Password does not match!")]
         [DataType(DataType.Password)]
