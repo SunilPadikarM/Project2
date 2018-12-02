@@ -95,5 +95,15 @@ namespace HotelReservation.Controllers
                 return RedirectToAction("Login");
             }
         }
+
+        //for displaying the booking list....
+        public ActionResult BookingList(){
+
+           
+
+                return View();
+            
+        }
+
     }
 }
