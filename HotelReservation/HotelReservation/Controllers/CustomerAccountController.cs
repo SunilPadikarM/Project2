@@ -55,7 +55,7 @@ namespace HotelReservation.Controllers
                 {
                     Session["UserId"] = usr.ID.ToString();
                     Session["User Name"] = usr.FirstName + " " + usr.LastName;
-                    return RedirectToAction("LoggedIn");
+                    return RedirectToAction("../Reservations/SearchRooms");
                 }
                 else
                 {

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using CreditCardDetails.Models;
 using HotelReservation.Models;
+
 namespace CreditCardDetails.Controllers
 {
     public class CreditCardController : Controller
@@ -31,6 +32,9 @@ namespace CreditCardDetails.Controllers
         public ActionResult PayAndBook(CardDetails credit)
         {
 
+           // HotelReservation.Transaction.TrxnWebService transaction = new HotelReservation.Transaction.TrxnWebService();
+            //trxnWebService.createTransaction(credit.ID, credit.NameOnCard, credit.creditCardNumber, credit.ID, 1, 100, credit.ExpDate, credit.cardType);
+            //ServiceReference1 serviceReference1 = new ServiceReference1();
             return View();
         }
        /* public string CheckRadio(FormCollection f)
