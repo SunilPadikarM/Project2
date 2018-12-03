@@ -1,0 +1,50 @@
+﻿@model IEnumerable<HotelReservation.Models.CardDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CardType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameOnCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CardType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameOnCard)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CardNumber }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CardNumber }) |
+                @Html.ActionLink("Make Payment", "MakePayment", new { CardNumber = item.CardNumber, CardType = item.CardType, NameOnCard = item.NameOnCard, ExpDate = item.ExpDate, ID = Session["UserId"] })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Add New", "Create") 
