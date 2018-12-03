@@ -12,11 +12,14 @@ namespace HotelReservation.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ReservationNumber { get; set; }
+        [Required(ErrorMessage = "CheckOut Date is Required!")]
 
         [Column(TypeName = "date")]
         public DateTime? CheckInDate { get; set; }
 
         [Column(TypeName = "date")]
+        [Required(ErrorMessage = "CheckOut Date is Required!")]
+        [DateValidation]
         public DateTime? CheckOutDate { get; set; }
 
         public int? NoOfGuests { get; set; }
