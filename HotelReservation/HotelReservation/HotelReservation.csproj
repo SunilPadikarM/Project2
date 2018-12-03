@@ -166,16 +166,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-
     <Compile Include="Common.cs" />
-
     <Compile Include="Connected Services\Transaction\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CreditCardController.cs" />
-
     <Compile Include="Controllers\CustomerAccountController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -183,7 +180,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-
     <Compile Include="Migrations\201812030030597_feedback.cs" />
     <Compile Include="Migrations\201812030030597_feedback.Designer.cs">
       <DependentUpon>201812030030597_feedback.cs</DependentUpon>
@@ -191,12 +187,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\CustomerAccount.cs" />
-    <Compile Include="Models\CustomerData.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\FeedbackViewModel.cs" />
     <Compile Include="Models\SignUp.cs" />
-
     <Compile Include="Models\CardDetails.cs" />
     <Compile Include="Models\creditCardDB.cs" />
     <Compile Include="Models\CustomerAccount.cs" />
@@ -204,7 +197,6 @@
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Reservation_Room.cs" />
     <Compile Include="Models\Room.cs" />
-
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -241,11 +233,8 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
-
     <Content Include="feedback form\images\Thumbs.db" />
-
     <None Include="Connected Services\Transaction\TrxnWebService.wsdl" />
-
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -279,10 +268,8 @@
     <Content Include="Views\CustomerAccount\Index.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\CustomerAccount\LogOff.cshtml" />
-
     <Content Include="Views\Feedback\Create.cshtml" />
     <Content Include="Views\Feedback\Index.cshtml" />
-
     <Content Include="Views\CustomerAccount\Search.cshtml" />
     <Content Include="Views\Reservations\Create.cshtml" />
     <Content Include="Views\Reservations\Delete.cshtml" />
@@ -297,7 +284,6 @@
     <Content Include="Views\Rooms\Index.cshtml" />
     <Content Include="Views\CreditCard\CreditCardInformation.cshtml" />
     <Content Include="Views\CustomerAccount\BookingList.cshtml" />
-
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -322,13 +308,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-
     <EmbeddedResource Include="Migrations\201812030030597_feedback.resx">
       <DependentUpon>201812030030597_feedback.cs</DependentUpon>
     </EmbeddedResource>
-
     <WCFMetadataStorage Include="Connected Services\Transaction\" />
-
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

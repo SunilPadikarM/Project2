@@ -8,46 +8,55 @@
 {
     <h2>Hello, @Session["User Name"].ToString() Welcome to Dan's Happy Hotel</h2>
 }
+<body background="https://www.hmhhotelgroup.com/sites/default/files/styles/custom_top_slider/public/bahibrand_2.jpg?itok=uG8heLz3">
+    <form id="loginform">
 
-<form id="loginform">
-    <div class="row text-center">
-        <div class="col-sm-2"  placeholder="Check-In Date">
-            <label>Check-In Date</label>
-            <input id="datepicker_Checkin" placeholder="Check-In Date" />
-            <script>
-                $('#datepicker_Checkin').datepicker({
-                    uiLibrary: 'bootstrap'
-            });
-            </script>
-    </div>
-        <div class="col-sm-2">
-            <label>Check-Out Date</label>
-            <input id="datepicker_Checkout" placeholder="Check-Out Date" />
-            <script>
-                $('#datepicker_Checkout').datepicker({
-                    uiLibrary: 'bootstrap'
-                });
-            </script>
+
+        <style>
+            body {
+                background-repeat: no-repeat;
+                background-size: cover
+            }
+        </style>
+        <div class="row text-center">
+            <div class="col-sm-2" placeholder="Check-In Date">
+                <label>Check-In Date</label>
+                <input id="datepicker_Checkin" placeholder="Check-In Date" />
+                <script>
+                    $('#datepicker_Checkin').datepicker({
+                        uiLibrary: 'bootstrap'
+                    });
+                </script>
+            </div>
+            <div class="col-sm-2">
+                <label>Check-Out Date</label>
+                <input id="datepicker_Checkout" placeholder="Check-Out Date" />
+                <script>
+                    $('#datepicker_Checkout').datepicker({
+                        uiLibrary: 'bootstrap'
+                    });
+                </script>
+            </div>
+            <div class="col-sm-2">
+                <label>Number of Guests</label>
+                <select class="form-control" id="NoGuest" name="NoGuest">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <label>Number of Rooms</label>
+                <select class="form-control" id="NoRooms" name="NoRooms">
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <label>&nbsp;</label>
+                <input type="submit" value="Search" class="btn btn-default" />
+            </div>
         </div>
-        <div class="col-sm-2">
-            <label>Number of Guests</label>
-            <select class="form-control" id="NoGuest" name="NoGuest">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-            </select>
-        </div>
-        <div class="col-sm-2">
-            <label>Number of Rooms</label>
-            <select class="form-control" id="NoRooms" name="NoRooms">
-                <option>1</option>
-                <option>2</option>
-            </select>
-        </div>
-    <div class="col-sm-1">
-        <label>&nbsp;</label>
-        <input type="submit" value="Search" class="btn btn-default" />
-    </div>
-    </div>
-</form>
+    </form>
+</body>

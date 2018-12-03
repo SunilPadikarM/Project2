@@ -26,7 +26,7 @@ namespace HotelReservation.Models
            : base("name=CustomerDetails1")
         {
         }
-        public DbSet<CustomerAccount> Customeraccount { get; set; }
+        public DbSet<CustomerAccount> customeraccount { get; set; }
 
         //public DbSet<Customer> Customers { get; set; }
 

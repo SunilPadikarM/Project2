@@ -15,14 +15,14 @@ namespace HotelReservation.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "WELCOME TO DAN'S HAPPY HOTEL";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "contact us here";
 
             return View();
         }
