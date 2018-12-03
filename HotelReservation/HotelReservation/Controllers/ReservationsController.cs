@@ -18,8 +18,9 @@ namespace HotelReservation.Controllers
         // GET: Reservations
         public ActionResult Index()
         {
-            var reservations = db.Reservations.Include(r => r.Room);
-            return View(reservations.ToList());
+            //var reservations = db.Reservations.Include(r => r.Room);
+            //return View(reservations.ToList());
+            return View();
         }
 
         public ActionResult bookRoom(Room room)
@@ -29,11 +30,23 @@ namespace HotelReservation.Controllers
 
         public ActionResult SearchRooms(Reservation reservation)
         {
-            List<Room> rooms = db.Rooms.ToList();
+            List<Room> rooms = new List<Room>();
             List<Reservation> reservations = null;
             //List<Reservation> result = new List<Reservation>();
             if (reservation.CheckInDate != null)
             {
+                rooms = db.Rooms.ToList();
+                DateValidation.ReservationDateValidate dateValidation = new DateValidation.ReservationDateValidate();
+                string validationString = dateValidation.IsValid(reservation);
+                if (!validationString.Equals(""))
+                {
+                    ViewBag.Message = validationString;
+                    return View(rooms);
+                }
+                else
+                {
+                    ViewBag.Message = "";
+                }
                 String date = reservation.CheckOutDate.Value.ToString("yyyy/MM/dd");
                 String date1 = reservation.CheckInDate.Value.ToString("yyyy/MM/dd");
 
@@ -41,7 +54,7 @@ namespace HotelReservation.Controllers
                 DateTime dateTime1 = DateTime.ParseExact(date1, "yyyy-MM-dd", CultureInfo.InvariantCulture);
                 //reservations = db.Reservations.Where(u => u.CheckInDate >= dateTime || u.CheckOutDate <= dateTime1 && u.RoomNumber == u.Room.RoomNumber).Distinct().ToList();
 
-                reservations = db.Reservations.Where(u => u.CheckInDate <= dateTime1 || u.CheckOutDate >= dateTime).ToList();
+                reservations = db.Reservations.Where(u => u.CheckInDate <= dateTime && u.CheckOutDate >= dateTime1).ToList();
                 
                 foreach(Reservation res in reservations)
                 {
@@ -53,6 +66,9 @@ namespace HotelReservation.Controllers
                         }
                     }
                 }
+                Session["CheckInDate"] = dateTime1;
+                Session["CheckOutDate"] = dateTime;
+                Session["NoOfGuests"] = reservation.NoOfGuests;
                 //db.Rooms.Find();
                 /*   List<int> roomList = new List<int>();
 
@@ -69,7 +85,7 @@ namespace HotelReservation.Controllers
                    }*/
             }
 
-            TempData["rooms"] = rooms;
+            //TempData["rooms"] = rooms;
             if (reservations != null)
             {
                 return View(rooms);
