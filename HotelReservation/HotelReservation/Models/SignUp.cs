@@ -13,7 +13,7 @@
         }
 
         public virtual DbSet<Customer> Customers { get; set; }
-
+        public virtual DbSet<Feedback> Feedbacks { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>()
