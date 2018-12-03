@@ -1,0 +1,102 @@
+﻿@model List<HotelReservation.Models.Room>
+@{
+    ViewBag.Title = "SearchRooms";
+}
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<h2>SearchRooms</h2>
+
+<form id="SearchForm" method="get">
+    <div class="row text-center">
+        <div class="col-sm-2" placeholder="Check-In Date">
+            <label>Check-In Date</label>
+            <input id="datepicker_Checkin" name="CheckInDate" placeholder="Check-In Date" />
+            <script>
+                $('#datepicker_Checkin').datepicker({
+                    uiLibrary: 'bootstrap'
+                });
+            </script>
+        </div>
+        <div class="col-sm-2">
+            <label>Check-Out Date</label>
+            <input id="datepicker_Checkout" name="CheckOutDate" placeholder="Check-Out Date" />
+            <script>
+                $('#datepicker_Checkout').datepicker({
+                    uiLibrary: 'bootstrap'
+                });
+            </script>
+        </div>
+      <!--  <div class="col-sm-2">
+            <label>Number of Guests</label>
+            <select class="form-control" id="NoGuest" name="NoOfGuests">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+        </div>
+        <div class="col-sm-2">
+            <label>Number of Rooms</label>
+            <select class="form-control" id="NoRooms" name="NoOfRooms">
+                <option>1</option>
+                <option>2</option>
+            </select>
+        </div>-->
+        <div class="col-sm-1">
+            <label>&nbsp;</label>
+            <input type="submit" value="SearchRooms" class="btn btn-default" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<form action="../CreditCard/CreditCardInformation" method="get">
+    <table class="table">
+        @if (Model != null)
+        {
+            <tr>
+                <th>
+                    Room Number
+                </th>
+                <th>
+                    Room Type
+                </th>
+                <th>
+                    Room Price
+                </th>
+                <th></th>
+            </tr>
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoomNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoomType)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        <input type="submit" value="bookRoom" class="btn btn-default" />
+                        @Html.ActionLink("Book ", "../CreditCard/CreditCardInformation", new { RoomNumber = item.RoomNumber, RoomType = item.RoomType, Price = item.Price })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</form>
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>

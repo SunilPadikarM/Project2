@@ -49,16 +49,23 @@ namespace HotelReservation.Controllers
         {
             using(CustomerData db = new CustomerData())
             {
-                var usr = db.customeraccount.Single(u => u.Email == cusAccount.Email && u.Password == cusAccount.Password);
+                try { 
+                var usr = db.customeraccount.FirstOrDefault(u => u.Email == cusAccount.Email && u.Password == cusAccount.Password);
                 if(null != usr)
                 {
                     Session["UserId"] = usr.ID.ToString();
                     Session["User Name"] = usr.FirstName + " " + usr.LastName;
-                    return RedirectToAction("LoggedIn");
+                    return RedirectToAction("../Reservations/SearchRooms");
                 }
                 else
                 {
                     ModelState.AddModelError("", "User Name or Password is wrong!");
+                }
+                } catch(Exception ex)
+                {
+                    ModelState.AddModelError("", "User Name or Password is wrong!");
+                    throw ex;
+                    
                 }
                 return View();
             }
@@ -88,5 +95,15 @@ namespace HotelReservation.Controllers
                 return RedirectToAction("Login");
             }
         }
+
+        //for displaying the booking list....
+        public ActionResult BookingList(){
+
+           
+
+                return View();
+            
+        }
+
     }
 }

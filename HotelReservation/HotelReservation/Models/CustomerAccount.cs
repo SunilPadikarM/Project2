@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace HotelReservation.Models
 {
-
+    [Table("Customer")]
     public class CustomerAccount
     {
         [Key]
@@ -21,7 +20,7 @@ namespace HotelReservation.Models
 
         [Display(Name = "Address")]
         [Required(ErrorMessage = "Address is Required!")]
-        public String address1 { get; set; }
+        public String addrses1 { get; set; }
 
         [Display(Name = "City")]
         [Required(ErrorMessage = "City is Required!")]
@@ -52,9 +51,10 @@ namespace HotelReservation.Models
         [DataType(DataType.Password)]
         public String Password { get; set; }
 
-        [Display(Name = "Confirm Password")]
+        
+        /*[Display(Name = "Confirm Password")]
         [Compare("Password", ErrorMessage = "Confirm Password does not match!")]
         [DataType(DataType.Password)]
-        public String ComparedPassword { get; set; }
+        public String ComparedPassword { get; set; }*/
     }
 }
