@@ -10,7 +10,14 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+<body background="http://sipsavorlodi.com/wp-content/uploads/2018/09/31-white-background-hd-high-resolution-desktop-wallpaper-download-plain-background-hd-images-home-wallpaper.jpg">
+    <style>
+        body {
+            text-align: center;
+            background-repeat: no-repeat;
+            background-size: cover
+        }
+    </style>
     <div class="form-horizontal">
         <h4>CustomerAccount</h4>
         <hr />
@@ -99,12 +106,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" style="float:left" />
             </div>
         </div>
     </div>
-}
+    </body>
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    
