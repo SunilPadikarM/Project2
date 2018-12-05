@@ -36,8 +36,18 @@ namespace HotelReservation.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(FeedbackViewModel model)
         {
+            if(null == model.Email || null == model.Comment || null == model.Select){
+                ViewBag.Message = "Please Enter the details before submitting!";
+                model.Answers = Common.GetAnswers();
+                return View(model);
+            }
+            else
+            {
+                ViewBag.Message = "";
+            }
             if (ModelState.IsValid)
             {
+
                 context.Feedbacks.Add(new Feedback { Answer = model.Select, Comment = model.Comment, Email = model.Email, FullName = model.FullName });
                 await context.SaveChangesAsync();
                 return RedirectToAction("Index");

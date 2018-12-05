@@ -44,7 +44,6 @@
             @Html.DisplayFor(modelItem => item.ExpDate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.CardNumber }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.CardNumber }) |
             @Html.ActionLink("Make Payment", "MakePayment", new { CardNumber = item.CardNumber, CardType = item.CardType, NameOnCard = item.NameOnCard, ExpDate = item.ExpDate, ID = Session["UserId"] })
         </td>

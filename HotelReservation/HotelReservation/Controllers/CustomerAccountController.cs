@@ -82,6 +82,21 @@ namespace HotelReservation.Controllers
             }
             int ID = Convert.ToInt32(Session["UserId"]);
             CustomerData cusdata = new CustomerData();
+            if(null != Request.Params.Get("FirstName")) { 
+            CustomerAccount customerAccount = new CustomerAccount();
+            customerAccount.addrses1 = Request.Params.Get("addrses1");
+            customerAccount.FirstName = Request.Params.Get("FirstName");
+            customerAccount.LastName = Request.Params.Get("LastName");
+            customerAccount.Phone = Request.Params.Get("Phone");
+            customerAccount.City = Request.Params.Get("City");
+            customerAccount.Postal = Request.Params.Get("Postal");
+            customerAccount.Province = Request.Params.Get("Province");
+            customerAccount.Password = Request.Params.Get("Password");
+            customerAccount.Email = Request.Params.Get("Email");
+            customerAccount.Country = Request.Params.Get("Country");
+            cusdata.customeraccount.Add(customerAccount);
+            cusdata.SaveChanges();
+            }
             CustomerAccount customer = cusdata.customeraccount.FirstOrDefault(u => u.ID == ID);
             return View(customer);
         }
@@ -97,7 +112,9 @@ namespace HotelReservation.Controllers
             }
         }
 
-        public ActionResult LogOff()
+
+        
+            public ActionResult LogOff()
         {
             if (Session["UserId"] != null)
             {

@@ -143,6 +143,7 @@ namespace HotelReservation.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CardNumber,CardType,NameOnCard,ExpDate,ID")] CardDetail cardDetail)
         {
+            cardDetail.ID = Convert.ToInt32(Session["UserId"]);
             if (ModelState.IsValid)
             {
                 db.Entry(cardDetail).State = EntityState.Modified;

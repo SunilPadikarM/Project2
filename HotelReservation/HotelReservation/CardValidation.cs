@@ -19,7 +19,7 @@ namespace HotelReservation
                         ValidationContext validationContext)
         {
             CardDetail cardDetail = (CardDetail)validationContext.ObjectInstance;
-                string cardNumber = cardDetail.CardNumber;
+                string cardNumber = (string) value ;
                 string cardType = cardDetail.CardType;
             if(null != cardDetail && null != cardDetail.CardNumber && null != cardDetail.CardType) { 
                 if (cardType.Equals(MasterCard) &&  !((cardNumber.StartsWith("51") || cardNumber.StartsWith("52") || cardNumber.StartsWith("53") || cardNumber.StartsWith("54") || cardNumber.StartsWith("55")) || cardNumber.Length == 16))

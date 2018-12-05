@@ -24,7 +24,7 @@ namespace ValidationOfPostalCode
             
             return ValidationResult.Success;
         }
-        //
+
         private bool IsUSorCanadianZipCode(string zipCode)
         {
             bool isValidUsOrCanadianZip = false;
